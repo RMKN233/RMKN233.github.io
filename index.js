@@ -1,3 +1,3 @@
 GameStart = function(){
-    alert("你要执行的语句");
+    window.location.href="./gamepage/game.html"
 }
