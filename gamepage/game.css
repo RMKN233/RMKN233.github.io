@@ -1,0 +1,38 @@
+#main{
+    width: 400px;
+    height: 800px;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: blueviolet;
+}
+
+#tipsfont{
+    width: 400px;
+    height: 100px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 50px;
+    bottom: 500px;
+    right: 0;
+}
+
+#box{
+    width: 270px;
+    height: 200px;
+    position: absolute;
+    left: 130px;
+    top: 170px;
+    bottom: 0;
+    right: 0;
+}
+
+#DrawArea{
+
+    width: 400px;
+    height: 600px;
+}

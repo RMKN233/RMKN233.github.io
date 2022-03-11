@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GamePage</title>
+    <link rel="stylesheet" href="./game.css">
+    <style>
+        #txt {
+            width: 200px;
+        }
+ 
+        div p {
+            margin: 0;
+            padding: 0;
+            padding-left: 5px;
+            padding-top: 5px;
+        }
+    </style>
+</head>
+<body bgcolor="#6494ed36">
+    <!--复制主页面-->
+    <div id="main">
+        <!--标题文字-->
+        <div id="title" align="center" style="color: aliceblue; font-size: 50px;">YuanshenDemo</div>
+
+        <!--提示文字-->
+        <div id="tipsfont"  align="center" style="font-family: 黑体; font-size: 30px;">地区 星级 元素 武器</div>
+
+        <!--canvas绘制-->
+        <canvas id="DrawArea"></canvas>
+
+        <!--搜索框-->
+        <div id="box">
+            <input type="text" placeholder="搜索" id="txt" value="" />
+            <input type="button" value="搜索" id="btn" onclick="serch()" />
+        </div>
+
+        
+    </div>
+
+
+    <script src="./game.js"></script>
+    <!--搜索框js-->
+    <script>
+        
+    </script>
+</body>
+</html>

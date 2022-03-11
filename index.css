@@ -1,0 +1,24 @@
+#index{
+    width: 400px;
+    height: 800px;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background: url(./img/paimeng.png) no-repeat center;
+    background-color: blueviolet;
+}
+
+#startbutton{
+    width: 50px;
+    height: 30px;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    top: 400px;
+    bottom: 0;
+    right: 0;
+}
+
