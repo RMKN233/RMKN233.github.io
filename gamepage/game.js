@@ -17,7 +17,6 @@ var SerChara=[  ["八重神子",0,"dq",5,"lei","fq"],["云堇",1,"ly",4,"yan","c
             ];
 
 var ans=Math.floor(Math.random()*45),ALLGuessNum=1,maxnum=6;
-ans=0;
 
 
 
