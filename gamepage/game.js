@@ -17,6 +17,7 @@ var SerChara=[  ["八重神子",0,"dq",5,"lei","fq"],["云堇",1,"ly",4,"yan","c
             ];
 
 var ans=Math.floor(Math.random()*45),ALLGuessNum=1,maxnum=6;
+ans=0;
 
 
 
@@ -35,7 +36,7 @@ function setInnerText(element,text){
         element.innerText = text;
     }else{
         element.textContent = text;
-    }  
+    }
 }
 
 
@@ -81,8 +82,12 @@ my$("txt").onkeyup = function () {
     var dvObj = document.createElement("div");
     my$("box").appendChild(dvObj);
     dvObj.id = "dv";
-    dvObj.style.width = "205px";
+    dvObj.style.position = "absolute";
+    dvObj.style.left = "9%";
+    dvObj.style.width = "155px";
     dvObj.style.border = "1px solid green";
+    dvObj.style.color = "aliceblue";
+    dvObj.style.fontSize = "12px";
 
     // 遍历tempArr数组，创建p，添加到dvObj里面
     for (let i = 0; i < tempArr.length; i++) {
@@ -94,7 +99,7 @@ my$("txt").onkeyup = function () {
  
         // 注册鼠标进入事件，鼠标进入，添加黄色背景图
         pObj.onmouseover = function () {
-            this.style.backgroundColor = "yellow";
+            this.style.backgroundColor = "#A52A2A";
         };
  
         // 注册鼠标移除事件，鼠标移除，移除背景色
@@ -111,9 +116,10 @@ my$("txt").onkeyup = function () {
 //canvas绘制
 var canvas=document.querySelector('#DrawArea');
 var context=canvas.getContext("2d"); 
-canvas.width=400;
-canvas.height=600;
+canvas.width=350;
+canvas.height=500;
 context.font = "15px 黑体";
+context.fillStyle = "#8470FF";
 var imgURL=document.createElement('img');
 imgURL.src="../img/rightwrong.png";
 
@@ -134,32 +140,54 @@ serch = function(){//主函数
     l:if(GuessNum!=-1){
         //alert(GuessNum);
 
-        context.fillText(SerChara[GuessNum][0],30,ALLGuessNum*80+40);
+        context.fillText(SerChara[GuessNum][0],10,(ALLGuessNum-1)*80+40);
         
         for(let i=2;i<=5;i++){
             if(SerChara[ans][i]==SerChara[GuessNum][i])
-                context.drawImage(imgURL,0,0,240,240,(i-2)*70+110,ALLGuessNum*80,70,70);
+                context.drawImage(imgURL,0,0,240,240,(i-2)*70+70,(ALLGuessNum-1)*80,70,70);
             else
-                context.drawImage(imgURL,240,0,240,240,(i-2)*70+110,ALLGuessNum*80,70,70);
+                context.drawImage(imgURL,240,0,240,240,(i-2)*70+70,(ALLGuessNum-1)*80,70,70);
         }
         if(GuessNum==ans){
-            context.fillText(SerChara[ans][0]+" 对了",230,(ALLGuessNum+1)*80+40);
+            context.fillText(SerChara[ans][0]+" 对了",160,(ALLGuessNum)*80+20);
             my$("main").removeChild(my$("box"));
-            break l;
+            func_restart();
+            return;
         }
 
 
-        var temp=170+80*ALLGuessNum;
-        document.getElementById('box').style.top=`${temp}px`;
+        var temp=440-80*ALLGuessNum;
+        document.getElementById('box').style.bottom=`${temp}px`;
         document.getElementById('txt').value = "";
     }
+    else{
+        return;
+    }
     ALLGuessNum++;
-    if(ALLGuessNum==maxnum){
-        context.fillText("5次结束了 答案是"+SerChara[ans][0],170,ALLGuessNum*80+40);
+    if(ALLGuessNum==maxnum && GuessNum!=ans){
+        context.fillText("5次白给了 答案是"+SerChara[ans][0],120,(ALLGuessNum-1)*80+20);
         my$("main").removeChild(my$("box"));
+        ALLGuessNum--;
+        func_restart();
         return;
     }
 
 
+}
 
+var func_restart = function(){
+    var restart =document.createElement("button");
+    var temp=200+80*(ALLGuessNum);
+    restart.id = "restart";
+    restart.onclick = function(){
+        window.location.reload();
+    }
+    restart.style.height = "30px";
+    restart.style.width = "80px";
+    restart.innerHTML = "再来亿次!"
+    restart.style.position = "absolute";
+    restart.style.borderRadius = "8px";
+    restart.style.left ="50%";
+    restart.style.top = `${temp}px`
+    my$("main").appendChild(restart);
 }
