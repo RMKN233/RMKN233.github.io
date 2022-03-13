@@ -16,12 +16,13 @@
 
 #startbutton{
     width: 80px;
-    height: 40px;
+    height: 80px;
     position: relative;
     margin: auto;
     left: 0;
     top: 400px;
     right: 0;
+    -webkit-tap-highlight-color:transparent;
 }
 
 #title{

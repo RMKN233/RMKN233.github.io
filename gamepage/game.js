@@ -12,7 +12,7 @@ var SerChara=[  ["八重神子",0,"dq",5,"lei","fq"],["云堇",1,"ly",4,"yan","c
                 ["丽莎",30,"md",4,"lei","fq"],["行秋",31,"ly",4,"shui","dsj"],["迪奥娜",32,"md",4,"bing","g"],
                 ["安柏",33,"md",4,"huo","g"],["重云",34,"ly",4,"bing","ssj"],["雷泽",35,"md",4,"lei","ssj"],
                 ["芭芭拉",36,"md",4,"shui","fq"],["罗莎莉亚",37,"md",4,"bing","cq"],["香菱",38,"ly",4,"huo","cq"],
-                ["凯亚",39,"md",4,"bing","dsj"],["北斗",40,"ly",4,"lei","ssj"],["诺艾尔",41,"ly",4,"yan","ssj"],
+                ["凯亚",39,"md",4,"bing","dsj"],["北斗",40,"ly",4,"lei","ssj"],["诺艾尔",41,"md",4,"yan","ssj"],
                 ["砂糖",42,"md",4,"feng","fq"],["辛焱",43,"ly",4,"huo","ssj"],["烟绯",44,"ly",4,"huo","g"]
             ];
 
@@ -163,8 +163,9 @@ serch = function(){//主函数
         return;
     }
     ALLGuessNum++;
+    document.getElementById('chanceNum').innerHTML= `你还有${6-ALLGuessNum}次机会 猜猜这是什么角色`
     if(ALLGuessNum==maxnum && GuessNum!=ans){
-        context.fillText("5次白给了 答案是"+SerChara[ans][0],120,(ALLGuessNum-1)*80+20);
+        context.fillText("5次白给了! 答案是"+SerChara[ans][0],120,(ALLGuessNum-1)*80+20);
         my$("main").removeChild(my$("box"));
         ALLGuessNum--;
         func_restart();
@@ -189,4 +190,12 @@ var func_restart = function(){
     restart.style.left ="50%";
     restart.style.top = `${temp}px`
     my$("main").appendChild(restart);
+}
+
+function  info(){
+    document.getElementById("infoBox").style.display="";
+}
+
+function closeinfo(){
+    document.getElementById("infoBox").style.display="none";
 }
